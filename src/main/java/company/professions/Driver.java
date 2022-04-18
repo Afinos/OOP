@@ -4,15 +4,11 @@ import OOP.Person;
 
 public class Driver extends Person {
 
-    private String fio;
     private int experience;
 
-    public String getFio() {
-        return fio;
-    }
-
-    public void setFio(String fio) {
-        this.fio = fio;
+    public Driver(String fullName, int age, int experience) {
+        super(fullName, age);
+        this.experience = experience;
     }
 
     public int getExperience() {
@@ -21,5 +17,10 @@ public class Driver extends Person {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    @Override
+    public String toString() {
+        return "Полное имя водителя: " + getFullName() + "\nВозраст водителя: " + getAge() + "\nОпыт вождения: " + getExperience();
     }
 }

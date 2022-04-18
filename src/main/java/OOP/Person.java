@@ -2,8 +2,13 @@ package OOP;
 
 public class Person {
 
-    private int age;
     private String fullName;
+    private int age;
+
+    public Person(String fullName, int age) {
+        this.fullName = fullName;
+        this.age = age;
+    }
 
     public int getAge() {
         return age;
