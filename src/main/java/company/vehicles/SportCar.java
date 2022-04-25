@@ -1,13 +1,13 @@
 package company.vehicles;
 
-import company.Main;
-import company.details.Engine;
-import company.professions.Driver;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Класс описывает спортивный автомобиль
+ */
 public class SportCar extends Car {
 
     private double maxSpeed;
@@ -48,12 +48,23 @@ public class SportCar extends Car {
         System.out.println("Всего сейчас в баке " + fuelLevel + " литров");
     }
 
+    /**
+     * Метод выполняет такую то логику
+     *
+     * @param countMoves - количество заданных действий для маневра автомобиля
+     */
     @Override
     public void doRandomMoves(int countMoves) {
+
+            if (countMoves <= 0 || countMoves > 1000) {
+                throw new IllegalArgumentException("Введено неверное количество движений");
+            }
+
+
         List<Integer> list = new ArrayList<>();
         list.add(0, 0);
         start();
-        for (int i = 1; i < countMoves; i++) {
+        for (int i = 1; i <= countMoves; i++) {
             int numberOfMove = (int) (Math.random() * 7);
             switch (numberOfMove) {
                 case 0:
